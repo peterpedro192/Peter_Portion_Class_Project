@@ -1,0 +1,131 @@
+/* GENERAL */
+
+
+/* Redefine HTML */
+
+
+/* the star applies to all elements */
+*{
+ 
+  
+    
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  
+  margin: 0 0; /* t-r b-l*/
+  
+  margin: 0 0 0 0; /* t r b l*/
+    
+    
+ margin: 0;
+ padding: 0;
+ line-height: 1;
+ border: none;
+}
+
+/* this cotains all the content of the page, changes in here only affect the html default not the browser default */
+body{
+    
+    font: smaller italic san-serif; /*not generally used, as order must be precise */
+    font-size: small;
+    font-size: 85%;
+    font-size: smaller;
+    font-style: italic;
+    font-family: sans-serif;
+    
+    color: gray;
+    
+    color: rgb(144,144,144);
+    
+    color: #660066; /* hexadecimal web safe color */
+    
+ 
+    
+    width: 100%; /* width is set to 100% of screen */
+    padding: 20px; /* 20px from each, so 40px must be subtracted from width, therefore adjust from 900px to 860px */
+    width: 860px; /* set the width of page to this amount, if brower window is sized below this then it won't go any smaller and user will have to scroll across */
+    margin: 0 auto; /* centers the page */
+    
+    
+    border: thick solid #003399;
+}
+
+/* the space between them means something - this will apply to all h1s that have a div parent */
+div h1{
+    color: #9999ff;
+    
+}
+
+/* the comma means this will apply to all 3 */
+h1,h2,h3{
+    color: #00cccc;
+    
+}
+
+/* Classes */
+
+/* targets only those paragraphs with a class of section that have a parent of div */
+div.section p{
+    color: #00ff66;
+}
+
+
+/* IDs */
+
+/* targets only those footers id that have a parent of div */
+
+div#footer{
+    color: #9999ff;
+}
+
+
+
+
+/* HEADER */
+
+
+/* Redefine HTML */
+
+
+/* Classes */
+
+/* IDs */
+
+
+
+
+
+
+/* CONTENT */
+
+
+/* Redefine HTML */
+
+
+/* this is used to adjust the formatting of inline elements across vaious block elements */
+span{
+    color: #f89406;
+}
+
+
+/* Classes */
+
+/* IDs */
+
+
+
+
+
+/* FOOTER */
+
+
+/* Redefine HTML */
+
+
+/* Classes */
+
+/* IDs */
+
+

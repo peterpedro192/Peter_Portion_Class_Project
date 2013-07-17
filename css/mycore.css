@@ -1,0 +1,150 @@
+@import url('reset.css'); 
+
+/*** GENERAL ***/
+
+
+/* Redefine HTML */
+
+/* Very crude method of resettin the defaults - this is replaced by reset/normalise file
+*{ 
+ margin: 0;
+ padding: 0;
+ border: none;
+}
+*/
+body{
+    font-size: smaller;
+    font-family: sans-serif;
+    color: #999;
+    width: 880px;
+    margin: 0 auto;
+    line-height: 1.75em
+}
+
+
+/* Classes */
+
+
+
+/* IDs */
+
+
+/*** HEADER ***/
+
+/* Redefine HTML */
+
+h1{
+    color: #fff;
+    padding: 20px;
+    background-color: #039;
+    margin-bottom: 20px;
+    
+}
+
+/* Classes */
+
+ul.nav{
+    list-style: none;
+    margin: 20px 0;
+    height: 22px; /* height determined by height of li items so - smaller which is 14px plus padding of 4px for top and bottom */
+}
+
+ul.nav li{
+    width: 200px;
+    margin: 0 10px; /* want some white space between li so add margin as color won't appear there but must subtract 20px fro the width (must subtract w/either padding/margin from width */
+    background-color: #039;
+    padding: 4px 0;
+    text-align: center;
+    float: left; /* this will cause the ul to collapse and there will be no space between the nav and text following so must set height for ul to compensate */
+}
+
+ul.nav li a{
+    color: #fff; /*makes links white regardless of visited, linked or active */
+    text-decoration: none;
+}
+
+
+ul.nav li a:hover{
+    color: #F90; /*makes links orange when the mouse hovers over them */
+    font-weight: bold; /*makes links bold when the mouse hovers over them */
+}
+
+
+/* USING THE ANCHOR TO CREATE NAVIGATION RATHER THAN LI, MUCH MORE EFFECTIVE BECAUSE USER CAN SEE HOVER/CLICK ANYWHERE ON ANCHOR */
+
+ul.newnav{
+    list-style: none; /* no bullet points */
+    margin: 20px 0;
+    height: 22px; /* height determined by height of li items so - smaller which is 14px plus padding of 4px for top and bottom */
+}
+
+ul.newnav li{
+    width: 200px;
+    margin: 0 10px; /* want some white space between li so add margin as color won't appear there but must subtract 20px fro the width (must subtract w/either padding/margin from width */
+    text-align: center;
+    float: left; /* this will cause the ul to collapse and there will be no space between the nav and text following so must set height for ul to compensate */
+}
+
+ul.newnav li a{
+    background-color: #039;
+    padding: 4px 0;
+    color: #FFF; /*makes links white regardless of visited, linked or active */
+    text-decoration: none; /* no underline */
+    display: block; /* diplays the inline anchor element as a block element, so background color will fill width area of parent, in this case the li */
+    outline: solid 2px #F00; /* puts an outline around anchor points, if browser doesn't support border radius clas */
+    
+}
+
+/* this is applied if browser supports border radius, will result in rounded pill-like look for anchor points */
+.borderradius ul.newnav li a{
+    border-radius: 18px;
+    outline: none;
+}
+
+
+
+ul.newnav li a:hover{
+    background-color: #F90; /*makes links orange when the mouse hovers over them */
+    font-weight: bold; /*makes links bold when the mouse hovers over them */
+}
+
+
+
+/* IDs */
+
+
+/*** CONTENT ***/
+
+/* Redefine HTML */
+
+h2,h3{
+    color: #F90;
+}
+
+h2+p{
+    width: 640px;
+    margin: 20px auto;
+}
+
+/* Classes */
+
+div.section{
+    margin: 20px 40px;
+}
+
+/* IDs */
+
+
+/*** FOOTER ***/
+
+/* Redefine HTML */
+
+/* Classes */
+
+/* IDs */
+
+div#footer{
+    background: #039;
+    color: #fff;
+    padding: 20px;
+}
