@@ -1,0 +1,58 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Positioning</title>
+        <style> 
+            .border {
+                outline:solid 1px #000; 
+                width: 400px; 
+                height: 75px;
+            }
+            body{
+                width: 600px;
+                margin: 0 auto;
+            }
+            #wrapper{
+                position: relative;
+                top: 0;
+                right: auto;
+                left: auto;
+                width: 600px;
+            }
+            #three{
+                position: absolute;
+                right: 0;
+            }
+        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="border" id="one">
+                 <p>one</p>
+            </div>
+            <div class="border" id="two">
+                 <p>two</p>
+            </div>  
+            <div class="border" id="three">
+                 <p>three</p>
+            </div>
+            <div class="border" id="four">
+                 <p>four</p>
+            </div>
+            <div class="border" id="five">
+                 <p>five</p>
+                 <div class="border" id="six">
+                    <p>six</p>
+                </div>
+           </div>
+                
+                
+            
+        </div>
+    </body>
+</html>
