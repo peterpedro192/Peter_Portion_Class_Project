@@ -1,0 +1,90 @@
+@import url('reset.css');
+body{
+	width: 960px; /* 960 */
+	margin: 0 auto;
+	font: medium sans-serif;
+}
+#container{
+	position: relative;
+	width: 960px; /* 960 */
+	right: auto;
+	left: auto;
+}
+h1{
+	font-size: 32px; /* 32 */
+	font-weight: bold;
+	padding: 16px 0; /* 16 0 */
+	margin-bottom: 16px; /* 16 0 */
+	border-bottom: solid 1px #000; /* 1 */
+}
+h2,h3{
+	font-size: 150%; /* 24 */
+	font-weight: bold;
+	margin: 12px 0; /* 12 */
+}
+nav{
+	height: 48px; /* 48 */
+	background-color: #000;
+	color: #FFF;
+	margin: 32px 0; /* 32 */
+}
+.borderradius nav{
+	border-radius: 0.5em; /* 8 */
+}
+nav a{
+	display: block;
+	padding: 16px; /* 16 */
+	color: #FFF;
+	text-decoration: none;
+}
+nav a:hover{
+	color: #CCC;
+}
+nav>a{
+	width: 200px; /* 200 */
+	float: left;
+	font-size: 125%; /* 12 */
+	padding: 12px 24px; /* 12 24*/
+	color: #CCC;
+}
+nav ul{
+	width: 480px; /* 480 */
+	float: right;
+}
+nav li{
+	width: 160px; /* 160 */
+	float: left;
+	text-align: center;
+        margin: 0;
+}
+nav+nav{
+	position: absolute;
+	right: 16px; /* 16 */
+	top: 0;
+	background: none;
+	font-size: medium; /* 16 */
+}
+nav+nav ul{
+	width: 160px; /* 160     */
+}
+nav+nav li{
+        width: 80px;
+}
+nav+nav a{
+	color: #000;
+	text-decoration: underline;
+	padding: 0;
+        font-size: 75%;
+}
+section,section p{
+	margin: 16px 0; /* 16 0 */
+}
+
+.content{
+	margin: 32px 80px; /* 32 80 */
+        line-height: 150%;
+}
+footer{
+	padding: 32px; /* 32 */
+        text-align: right;
+}

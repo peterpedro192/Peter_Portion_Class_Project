@@ -1,0 +1,149 @@
+@import url('reset.css');
+body{
+	font: 1em sans-serif; /* 16px/16px - 1 square = 16px, replaces medium sans-serif, means 100% of whatever the body font is*/ 
+        width: 60em; /* 960px/60px */
+	margin: 0 auto;
+	
+}
+#container{
+	position: relative;
+	width: 60em; /* 960px/60px - same as body, sits on top of body */
+	right: auto;
+	left: auto;
+}
+h1{
+	font-size: 2em; /* 32px/16px - from this point on and only for this function 1em = 32px, doubles em in size - THIS ONLY APPLIES TO FONT SIZES, NOT FOR ANYTHING ELSE */
+	font-weight: bold;
+	padding: 0.5em 0; /* 16px/32px 0 */
+	margin-bottom: 0.5em; /* 16px/32px */
+	border-bottom: solid 1px #000; /* 1 - this is just a thin line, not a box so don't want it to incresase/decrease - so stays as 1px'*/
+}
+h2,h3{
+	font-size: 1.5em; /* 16px*1.5 = 24px, 1em for this function now equals 24px - THIS ONLY APPLIES TO FONT SIZES, NOT FOR ANYTHING ELSE*/
+	font-weight: bold;
+	margin: 0.5em 0; /* 12px/24px */
+}
+nav{
+	height: 3em; /* 16px * 3 = 48px */
+	background-color: #000;
+	color: #FFF;
+	margin: 2em 0; /* 16px * 2 = 32px */
+}
+
+
+/*for chrome, firefox, microsoft, safari specifically and general (for mobile below it */
+.cssgradients nav{
+    background-image: -webkit-linear-gradient(top, #000, #999);
+    background-image: -moz-linear-gradient(top, #000, #999);
+    background-image: -ms-linear-gradient(top, #000, #999);
+    background-image: -o-linear-gradient(top, #000, #999);
+    background-image: linear-gradient(top, #000, #999);
+}
+
+.borderradius nav{
+	border-radius: 0.5em; /* 8px/16px */
+}
+nav a{
+	display: block;
+	padding: 1em; /* 16px/16px */
+	color: #FFF;
+	text-decoration: none;
+}
+nav a:hover{
+	color: #CCC;
+}
+nav>a{
+	font-size: 1.25em; /* 16px * 1.25 = 20px or 20px/16px = 1.25, THIS NOW SETS 1EM AS 20PX FOR THIS FUNCTION ONLY*/
+        width: 10em; /* 200px/20px */
+	float: left;
+	
+	padding: 0.7em 1em; /* 14px 20px*/
+	color: #CCC;
+}
+nav ul{
+	width: 30em; /* 480/16 */
+	float: right;
+}
+nav li{
+	width: 10em; /* 160/16 */
+	float: left;
+	text-align: center;
+        margin: 0;
+}
+nav+nav{
+	font-size: 1em; /* 16/16  - THIS NOW SET THE 1EM AS 16PX FOR THIS FUNCTION ONLY*/
+        position: absolute;
+	left: 1em; /* 16/16 */
+	bottom: -2em; /* absolute positions to top right corner */
+	background: none !important; /* indicates that whatever has come before nav+nav MUST NOT hava a background or gradient - overrides specificity issue */
+       
+        
+
+}
+nav+nav ul{
+	width: 10em; /* 160px/16px     */
+}
+nav+nav li{
+        width: 5em; /*80px/16px */
+}
+nav+nav a{
+        font-size: 0.75em; /* 16px * .75 = 12px */
+	color: #000;
+	text-decoration: underline;
+	padding: 0;
+}
+section,section p{
+	margin: 1em 0; /* 16 0 */
+}
+
+.content{
+	margin: 2em 5em; /* 32px/16px 80px/16px */
+        line-height: 150%;
+}
+footer{
+	padding: 2em; /* 32/16 */
+        text-align: right;
+}
+
+
+/* Removes empty sections and uses padding (which is visible) to put images above/below text */
+
+
+#top{
+    background: url('../images/whales.gif') no-repeat left top;
+    padding-top: 10em;
+}
+
+#bottom{
+    background: url('../images/dropme.gif') no-repeat left bottom;
+    padding-bottom: 10em;
+}
+
+/* Optimised version - used with empty sections - u want the images in same position 
+
+#top,#bottom{
+    height: 10em; /* 10 * 16px = 160px 
+    background: url('../images/whales.gif') no-repeat left center;
+}
+
+
+
+#bottom{
+    background-image: url('../images/dropme.gif');
+}
+
+
+
+/* longer version - use this when positioning of images on screem may differ
+#top,#bottom{
+    height: 10em; /* 10 * 16px = 160px 
+}
+
+#top{
+    background: url('../images/whales.gif') no-repeat left center;
+}
+
+#bottom{
+    background: url('../images/dropme.gif') no-repeat left center;
+}
+*/
