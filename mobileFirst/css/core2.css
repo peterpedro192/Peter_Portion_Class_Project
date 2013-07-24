@@ -1,0 +1,82 @@
+@import url('reset.css');
+body{
+	font: 1em sans-serif;
+	max-width: 30em;
+	margin: 0 auto;
+}
+h1{
+	background: #999;
+	padding: 1em;
+}
+nav ul{
+	margin: 0;
+}
+nav li{
+	width: 100%;
+	text-align: center;
+}
+nav a{
+	display: block;
+	background: #CCC;
+	color: #000;
+	text-decoration: none;
+	padding: 0.5em 0;
+}
+nav a:hover{
+	background: #666;
+}
+section p{
+	margin: 1em 0;
+}
+h1,h2,h3{
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#content{
+	padding: 1em;
+	text-align: justify;
+}
+@media only screen and (min-width: 31em){
+	body{
+		max-width: 46em;
+		padding: 0 1em;
+	}
+	nav ul{
+		height: 4em;
+		margin: 1em 0;
+	}
+	nav li{
+		width: 45%;
+		float: left;
+		margin: 0 2.5%;
+	}
+	h1{
+		font-size: 1.75em;
+	}
+}
+@media only screen and (min-width: 48em){
+	body{
+		max-width: 58em;
+		padding: 1em;
+	}
+	nav ul{
+		height: 2em;
+	}
+	nav li{
+		width: 20%;
+		float: left;
+	}
+	h1{
+		font-size: 2em;
+	}
+	#content{
+		display: table;
+	}
+	#content section{
+		width: 40%;
+		display: table-cell;
+		padding: 1em 5%;
+		outline: solid 1px #666;
+
+	}
+}

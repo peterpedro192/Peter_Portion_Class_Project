@@ -1,0 +1,180 @@
+@import url('reset.css');
+
+
+/* BEST PRACTICE - START DESIGN WITH MOBILE THEN GO TO LARGER SCREEN SIZES, ONLY NEED TO ADAPT THOSE THINGS THAT CHANGE
+    ON DIFFERENT SIZE SCREEENS */
+
+/* PAUL USES PERCENTAGES FOR FONT SIZE AND EM FOR EVERYTHING ELSE */
+
+
+/* FOR MOBILE DEVICES UP TO 480PX */
+
+body{
+    max-width: 30em; /* 480px/16px - width up to this point, after this it will stop getting any wider */
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-size: 100%; /* same as saying 1em */
+}
+
+h1{
+    background: #999; /* mid-grey */
+    padding: 1em; /* 1 * current h1 size, when h1 gets bigger (in h1,h2,h3 function) theb padding gets bigger*/
+    margin: 0;
+}
+
+
+h1,h2,h3{
+    font-weight: bold;
+    font-size: 150%; /* same as 1.5em */
+    
+}
+
+nav ul{
+    margin: 0;
+}
+
+nav li{
+    width: 100%; /* width of l1 is 100% of body width */
+    text-align: center;
+    
+}
+
+nav a{
+    display: block; /* takes anchor from an inline to a block element, ie will fill width of li, so width of body */
+    background: #CCC;
+    color: #000;
+    text-decoration: none;
+    padding: 0.5em 0; /* overall height of li and a = 1 + 0.5 + 0.5 */
+}
+
+nav a:hover{
+    background: #666;
+}
+
+section p{
+    margin: 1em 0; /* 16/16 */
+}
+
+#content{
+    margin: 1em 0;
+    text-align: justify;
+    line-height: 1.5em; /* 1.5 * 16 */
+}
+
+
+/* used when image was placed in html, as images has noting to do with content should be placed in css
+.illustration{
+    width: 100%;
+}
+
+/* or an alternative way to target those images
+
+h2+p img{
+    width: 100%;
+}
+*/
+
+
+/* this applies to both images */
+section h2{
+    background: url('../../illustration/images/whales.gif') no-repeat center 2em; /* the 2em is from the top
+     this is important becasue it is 2em from the top of h2, meaning whatever the adjustment the image flow into the text */                                                                                  
+    padding-bottom: 6em;
+    background-size: contain; /* this will fit the height or width of image to the container box (so with gaps at top/bottom
+                              or left/right, as opposed to cover which cuts off part of the image as it places it over
+                              the container box, so no gaps in any way */
+   
+}
+
+/* this overwrites the only required change, which is the image itself - optimisation */
+section#bottom h2{
+    background-image: url('../../illustration/images/dropme.gif');
+  
+}
+
+
+
+
+
+/* FOR MEDIUM SIZE DEVICES, E.G. TABLETS UP TO 768PX */
+
+
+@media only screen and (min-width: 31em){
+    
+    body{
+        max-width: 48em; /*768/16*/
+        
+    }
+    
+    nav ul{
+        height: 4em; /* used to stop ul from collapsing when float applied */
+        margin: 1em 0;
+    }
+    
+    nav li{
+        width: 45%; /* to fit 2 of them across the page width, 50 - 2.5 - 2.5 */
+        float: left;
+        margin: 0 2.5%; /* put margin of 2.5% on left and right (to give gap eitehr side so must reduce width by 5% */
+    }
+    
+    h1{
+        font-size: 175%; /* 1.75em, as padding is based on size of h1, that too will get bigger */
+    }
+    
+    #content{
+        padding: 0 1em; /* moves content away from edges so easier to read, as this is auto centered it doesn't matter in this case
+                            if you use padding or text, only depends if you had background and wanted to see it or not */
+        
+    }
+    
+    
+   /* these 2 functions were moved from the desktop display media query section, just to show u can apply the table display
+        view at the tablet size if you so wish */
+  
+    #content{
+        display: table; /* this does not change the meaning of the content as an actual table would (and tables are NOT
+                            to be used for layout purposes) this merely changes the way the content is displayed <table> */
+    }
+    
+    #content section{
+        width: 40%; /* 50% - padding of 5% - 5% */
+        display: table-cell; /* diplays the 2 sections as 2 cells in table row <td>*/
+        padding: 1em 5%; /* top/bottom padding doesn't matter, 'table cell cannot have margins to add spacing so must add padding 
+                            and then subtract this from the width */
+        outline: solid 1px #000; /* use outline because it doesn't add to the width (whereas use of border would and we would
+                                 need to subtract this from width, which we can't do because we used percentages')
+                                and use 1px because u don't want the width of the line to change depending on size */ 
+    }
+    
+    
+    
+    
+    
+}
+
+
+/* FOR DESKTOP SIZE OVER 960PX */
+
+@media only screen and (min-width: 49em){
+    
+    
+    body{
+        max-width: 60em; /* 960/16 */
+    }
+    
+    nav ul{
+        height: 2em; /* should adjust to proper height, add margin if want space above or below */
+    }
+    
+    nav li{
+        width: 20%; /* 100/4 = 25 - 2.5 -2.5 */
+    }
+        
+    
+}
+
+
+
+
+
+

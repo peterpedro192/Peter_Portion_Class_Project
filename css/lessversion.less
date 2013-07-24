@@ -1,0 +1,93 @@
+@import url('reset.css'); 
+
+
+
+/* Constants */
+
+
+@basefont: 16px; /* would usually be put as 1em, but used as 16px for teaching purposes */
+@grey: #F00;
+
+
+/* Mixins - using contstants within other constants */
+@lightgrey: @grey + #333;
+@darkgrey: @grey - #333;
+
+@lightgrey: lighten(@grey,10%); /* does same thing as above, and only need to change base grey color in one place to affect everything else that uses it */
+@darkgrey: darken(@grey,10%);
+
+@lightgrey: spin(@grey,0); /* getting complimentary colors using the color wheel */
+@darkgrey: spin(@grey,180);
+
+
+
+body{
+
+    font-size: @basefont;
+    font-family: sans-serif;
+    color: @grey;
+    width: 60*@basefont;
+    margin: 0 auto;
+    line-height: 1.5*@basefont;
+
+}
+
+h1{
+
+    font-size: 2*@basefont;
+    padding: 1*@basefont;
+    background-color: @darkgrey;
+    color: @lightgrey;
+    margin-bottom: 2*@basefont;
+}
+
+
+ul.newnav{
+
+    margin: 2*@basefont 0;
+    height: 1*@basefont;
+
+    li{
+        width: (60*@basefont)/4;
+        float: left;
+        text-align: center;
+    }
+
+    a{
+        background-color: @darkgrey;
+        color: @lightgrey;
+        text-decoration: none;
+        display: block;
+        padding: @basefont/4 0;
+
+        &:hover{
+            background-color: @lightgrey;
+            color: @darkgrey;
+        }    
+
+    }
+    
+}
+
+
+.borderradius{
+
+    ul.newnav a{
+        border-radius: @basefont;
+    }
+}
+
+.gradient(@origin: top, @start: #000, @end: #FFF){
+    background-image: -webkit-linear-gradient(@origin,@start,@end);
+    background-image: -moz-linear-gradient(@origin,@start,@end);
+    background-image: -ms-linear-gradient(@origin,@start,@end);
+    background-image: -o-linear-gradient(@origin,@start,@end);
+    background-image: linear-gradient(@origin,@start,@end);
+}
+
+   
+div#footer{
+    .gradient(right,#F00,#00F);
+}
+        
+        
