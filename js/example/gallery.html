@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toggle Menu Three</title>
+<!-- Using Javascript to show/hide a simple gallery-->
+<script>
+
+    //Turn off submenus using Javascript rather than CSS for accessibility reasons
+    
+    subClass = null;
+    eleName = null;
+    classValue = null;
+    
+    function hideItem(eleName,classValue){
+        //store in array 'subClass' all elements in page
+        subClass = document.getElementsByTagName(eleName);
+        
+        //Loop through each array position from 0 to length
+        for(i=0;i<subClass.length;i++){
+            //check each array position and see if class of 'subclass' is in that array slot, each slot contains 1 element on page
+            // so all individual tagnmes for ul, p, li, body, etc, to see if they contain a class of 'subMenu' 
+            if(subClass[i].className == classValue){
+                subClass[i].style.display = 'none';
+                
+            }
+        }
+        
+        
+    }
+    
+    currId = null;
+    currItem= null;
+    oldItem = null;
+    
+    function toggleItem(currId){
+        //locate element with relevant id using DOM
+        currItem = document.getElementById(currId);
+        
+       //check to se of existing item is displayed, if yes close it
+        if(oldItem)
+                    {
+                        oldItem.style.display = 'none';
+                    }
+                    
+                    
+        //change located element's style display to block    
+        currItem.style.display = 'block';
+        //remember what item was just displayed
+        oldItem=currItem;
+        }
+        
+    }
+
+</script>
+<style>
+    p.hidden{
+        position: absolute;
+        top: 100px;
+        left: 250px;
+    }
+    
+    p.hidden img{
+        width: 480px;
+        height: 320px;
+    }
+</style>
+</head>
+
+<body onload="hideItem('p','hidden'); toggleItem('one')">
+<h1>Gallery</h1>
+<div id="gallery">
+    <p><a href="#" onclick="toggleItem('one')"><img src="../../images/bird1_sml.jpg" /></a></p>
+    <p class="hidden" id="one"><img src="../../images/bird1_lrg.jpg" /></p>
+    <p><a href="#" onclick="toggleItem('two')"><img src="../../images/bird2_sml.jpg" /></a></p>
+    <p class="hidden" id="one"><img src="../../images/bird2_lrg.jpg" /></p>
+    <p><a href="#" onclick="toggleItem('three')"><img src="../../images/bird3_sml.jpg" /></a></p>
+    <p class="hidden" id="one"><img src="../../images/bird3_lrg.jpg" /></p>
+    <p><a href="#" onclick="toggleItem('four')"><img src="../../images/bird4_sml.jpg" /></a></p>
+    <p class="hidden" id="one"><img src="../../images/bird4_lrg.jpg" /></p>
+     
+    
+</div>
+</body>
+</html>
