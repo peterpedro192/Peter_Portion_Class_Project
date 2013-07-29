@@ -1,0 +1,83 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Core</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script> src="../modernizr.min.js"</script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Jquery Core</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                            </ul>
+                        
+                        </li>
+                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="#">Menu Four</a>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                            </ul>
+                        
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="content">
+                <h2>Core</h2>
+            </div>
+            <footer>
+                
+            </footer>
+        </div>
+        <!-- jQuery Library first -->
+        <script src="libs/jquery/jquery-1.10.2.min.js"></script>
+        <!-- jQuery plug-in helper files -->
+        <!-- jQuery Activation Script, the $ in front of something indicates we are using Jquery NOT Javascript -->
+        <script>
+            
+            $(document).ready(function(){
+                /*
+                //Use selector pattern to hide elements, except the first one, that is open automatically
+              $('nav li ul:not(:first)').hide();  
+                //Toggle Menu One - close all menus, only active clicked menu remains open
+                //Use selector pattern to create an event linked to another function
+                //Only affects anchors that are the children of an li (that is in a nav)
+                //Toggles by hiding all the anchors and then showing the one you are clicking on
+                //Can do show hide or slipup or slidedown depending on preference
+                //Slow/fas/4000 is for the animate funciton and determine show fast u want to show/hide/slide
+                
+              $('nav li>a').click(function(){
+                  $('nav li ul').slideUp('slow'); 
+                  $(this).next().slideDown('slow');
+              })
+                */
+               //Use selector pattern to hide elements
+              $('nav li ul').hide();
+              //Toggle Menu Two - both menus open at same time, whichever submenu clicked on remains open until clicked again
+              //The toggle function does away with having to explicity show/hide a menu, with toggle it is automatic
+              //If the menu is open it hides it and vice versa automatically
+               $('nav li>a').click(function(){
+                  $(this).next().slideToggle('slow');
+              })
+              
+                
+            })
+        </script>
+    </body>
+</html>

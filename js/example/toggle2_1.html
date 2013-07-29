@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toggle Menu Two</title>
+<!-- All this one does is open/close on click, so can have all open or all closed dependin on how we click -->
+<script>
+
+    //Turn off submenus using Javascript rather than CSS for accessibility reasons
+    
+    subMenu = null;
+    eleName = null;
+    
+    function hideMenu(eleName){
+        //store in array 'subMenu' all elements in page
+        subMenu = document.getElementsByTagName(eleName);
+        
+        //Loop through each array position from 0 to length
+        for(i=0;i<subMenu.length;i++){
+            //check each array position and see if class of 'submenu' is in that array slot, each slot contains 1 element on page
+            // so all individual tagnmes for ul, p, li, body, etc, to see if they contain a class of 'subMenu' 
+            if(subMenu[i].className == 'submenu'){
+                subMenu[i].style.display = 'none';
+                
+            }
+        }
+        
+        
+    }
+    
+    currId = null;
+    currMenu = null;
+    
+    function toggleMenu(currId){
+        //locate element with relevant id using DOM
+        currMenu = document.getElementById(currId);
+        
+        //if menu closed open it
+        if(currMenu.style.display == 'block'){
+            currMenu.style.display = 'none';
+        }
+            //else close it
+        else{
+            currMenu.style.display = 'block';
+        }
+        
+    }
+
+</script>
+<style>
+
+</style>
+</head>
+<body onload="hideMenu('ul')">
+<h1>Toggle Menu One</h1>
+<ul>
+	<li><a href="#">Menu One</a></li>
+	<li><a href="#" onclick="toggleMenu('first')">Menu Two</a>
+		<ul id="first" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Three</a></li>
+	<li><a href="#" onclick="toggleMenu('second')">Menu Four</a>
+		<ul id="second" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Five</a></li>
+</ul>
+<h2>Content Heading</h2>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Core</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body{
+                width: 60em;
+                margin: 0 auto;
+            }
+            dl{
+                width: 30em;
+                margin: 0 auto;
+            }
+            dl dt a{
+                background: rgba(0,0,0,0.8);
+                padding: 1em;
+                display: block;
+                text-decoration: none;
+                color: rgb(255,255,255);
+                font-size: 1.25em;
+            }
+            dl dt a:after{
+                content:"\00BB";/*Unicode right-hand double arrow*/
+            }
+            dl dd{
+                background: rgba(0,0,0,0.2);
+                margin: 0;
+                padding: 2em;
+                
+            }    
+        </style>
+        <script> src="../modernizr.min.js"</script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Jquery Core</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                            </ul>
+                        
+                        </li>
+                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="#">Menu Four</a>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                            </ul>
+                        
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="content">
+                <h2>Core</h2>
+                <h3>Accordion Menu</h3>
+                <dl>
+                    <dt><a href="#">Term One</a></dt>
+                    <dd>
+                        This is the definition of term one.
+                        This should explain the meaning(s) and
+                        common uses of the term in simple to
+                        understand language.
+                    </dd>
+                    <dt><a href="#">Term Two</a></dt>
+                    <dd>
+                        This is the definition of term one.
+                        This should explain the meaning(s) and
+                        common uses of the term in simple to
+                        understand language.
+                    </dd>
+                    <dt><a href="#">Term Three</a></dt>
+                    <dd>
+                        This is the definition of term one.
+                        This should explain the meaning(s) and
+                        common uses of the term in simple to
+                        understand language.
+                    </dd>
+                    <dt><a href="#">Term Four</a></dt>
+                    <dd>
+                        This is the definition of term one.
+                        This should explain the meaning(s) and
+                        common uses of the term in simple to
+                        understand language.
+                    </dd>
+                   
+                </dl>
+            </div>
+            <footer>
+                
+            </footer>
+        </div>
+        <!-- jQuery Library first -->
+        <script src="libs/jquery/jquery-1.10.2.min.js"></script>
+        <!-- jQuery plug-in helper files -->
+        <!-- jQuery Activation Script, the $ in front of something indicates we are using Jquery NOT Javascript -->
+        <script>
+            //General onload instruction for Jquery
+            $(document).ready(function(){
+                /*
+                //Use selector pattern to hide elements, except the first one, that is open automatically
+              $('nav li ul:not(:first)').hide();  
+                //Toggle Menu One - close all menus, only active clicked menu remains open
+                //Use selector pattern to create an event linked to another function
+                //Only affects anchors that are the children of an li (that is in a nav)
+                //Toggles by hiding all the anchors and then showing the one you are clicking on
+                //Can do show hide or slipup or slidedown depending on preference
+                //Slow/fas/4000 is for the animate funciton and determine show fast u want to show/hide/slide
+                
+              $('nav li>a').click(function(){
+                  $('nav li ul').slideUp('slow'); 
+                  $(this).next().slideDown('slow');
+              })
+                
+                */
+               
+                
+               //Use selector pattern to hide elements
+              $('nav li ul').hide();
+              //Toggle Menu Two - both menus open at same time, whichever submenu clicked on remains open until clicked again
+              //The toggle function does away with having to explicity show/hide a menu, with toggle it is automatic
+              //If the menu is open it hides it and vice versa automatically
+               $('nav li>a').click(function(){
+                  $(this).next().slideToggle('slow');
+              })
+              
+             
+             // Accordian Menu
+             //Add jQuery to hide all dd's inside dl - except the first one
+             
+             $('#content dl dd:not(:first)').hide();
+             $('#content dt a').click(function(){
+                 $('#content dl dd').slideUp('slow');
+                 $(this).parent().next().slideDown('slow');
+                 
+             })
+                
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Example Gallery Using Jquery</title>
+
+<style>
+	p.hidden{
+		position: absolute;
+		top: 100px;
+		left: 250px;
+	}
+	p.hidden img{
+		width: 480px;
+		height: 320px;
+	}
+</style>
+<script> src="../modernizr.min.js"</script>
+
+</head>
+<body>
+<h1>Gallery</h1>
+<div id="gallery">
+	<p><a href="#"><img src="images/flower1_sml.jpg" /></a></p>
+		<p class="hidden" id="one"><img src="images/flower1_lrg.jpg" /></p>
+	<p><a href="#"><img src="images/flower2_sml.jpg" /></a></p>
+		<p class="hidden" id="two"><img src="images/flower2_lrg.jpg" /></p>
+	<p><a href="#"><img src="images/flower3_sml.jpg" /></a></p>
+		<p class="hidden" id="three"><img src="images/flower3_lrg.jpg" /></p>
+	<p><a href="#"><img src="images/flower4_sml.jpg" /></a></p>
+		<p class="hidden" id="four"><img src="images/flower4_lrg.jpg" /></p>
+</div>
+        <!-- jQuery Library first -->
+        <script src="libs/jquery/jquery-1.10.2.min.js"></script>
+        <!-- jQuery plug-in helper files -->
+        <!-- jQuery Activation Script, the $ in front of something indicates we are using Jquery NOT Javascript -->
+        <script>
+            //General onload instruction for Jquery
+            $(document).ready(function(){
+                $('#gallery p.hidden').hide(); 
+                /* Fade in effect for gallery
+                    $('#gallery p>a').click(function(){
+                      $('#gallery p.hidden').hide();  
+                      //Fade in effect
+                      $(this).parent().next().fadeIn('slow');          
+                    })
+                    */
+                   
+                   //Toggle slideup and slidedown effect for gallery
+                      $('#gallery p>a').click(function(){
+                        
+                          $('#gallery p.hidden').slideUp('slow');
+                          $(this).parent().next().slideDown('slow');
+                          
+                          
+                      })
+                   
+         })
+    
+        </script>
+</body>
+</html>

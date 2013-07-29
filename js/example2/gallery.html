@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Example Gallery using Javascript</title>
+<script>
+	subClass = null;
+	eleName = null;
+	classValue = null;
+	function hideItem(eleName,classValue){
+		// Store in array 'subMenu' all elements in page
+		subClass = document.getElementsByTagName(eleName);
+		// Loop through each array position from 0 to length
+		for(i=0;i<subClass.length;i++){
+		// Check each array position and see if class of 'submenu'
+			if(subClass[i].className == classValue){
+				subClass[i].style.display = 'none';
+			}
+		}
+	}
+	currId = null;
+	currItem = null;
+	oldItem = null;
+	function toggleItem(currId){
+		// Locate element with relevant id using DOM
+		currItem = document.getElementById(currId);
+		// Check to see if existing menu open
+		if(oldItem){
+			oldItem.style.display = 'none';
+		}
+		// Change located element's style display to block
+		currItem.style.display = 'block';
+		// Remember what menu has just been toggled on
+		oldItem = currItem;
+	}
+</script>
+<style>
+	p.hidden{
+		position: absolute;
+		top: 100px;
+		left: 250px;
+	}
+	p.hidden img{
+		width: 480px;
+		height: 320px;
+	}
+</style>
+</head>
+<body onload="hideItem('p','hidden');toggleItem('one')">
+<h1>Gallery</h1>
+<div id="gallery">
+	<p><a href="#" onclick="toggleItem('one')"><img src="images/flower1_sml.jpg" /></a></p>
+		<p class="hidden" id="one"><img src="images/flower1_lrg.jpg" /></p>
+	<p><a href="#" onclick="toggleItem('two')"><img src="images/flower2_sml.jpg" /></a></p>
+		<p class="hidden" id="two"><img src="images/flower2_lrg.jpg" /></p>
+	<p><a href="#" onclick="toggleItem('three')"><img src="images/flower3_sml.jpg" /></a></p>
+		<p class="hidden" id="three"><img src="images/flower3_lrg.jpg" /></p>
+	<p><a href="#" onclick="toggleItem('four')"><img src="images/flower4_sml.jpg" /></a></p>
+		<p class="hidden" id="four"><img src="images/flower4_lrg.jpg" /></p>
+</div>
+</body>
+</html>

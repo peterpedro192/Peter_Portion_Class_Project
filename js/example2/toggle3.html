@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toggle Menu Three</title>
+<script>
+subMenu = null;
+function hideMenu(eleName){
+	subMenu = document.getElementsByTagName(eleName);
+	for(i=0;i<subMenu.length;i=i+1){
+		if(subMenu[i].className === 'submenu'){
+			subMenu[i].style.display = 'none';
+		}
+	}
+}
+
+currId = null;
+currMenu = null;
+oldMenu = null;
+function toggleMenu(currId){
+	// Locate element with relevant id using DOM
+	currMenu = document.getElementById(currId);
+
+	// If menu open close it
+	if(currMenu.style.display == "block"){
+		currMenu.style.display = "none";
+	}else{
+		if(oldMenu){
+			oldMenu.style.display = 'none';
+		}
+	// else close it
+		currMenu.style.display = "block";
+		oldMenu = currMenu;
+	}
+}
+</script>
+</head>
+<body onload="hideMenu('ul')">
+<h1>Toggle Menu Three</h1>
+<ul>
+	<li><a href="#">Menu One</a></li>
+	<li><a href="#" onclick="toggleMenu('first')">Menu Two</a>
+		<ul id="first" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Three</a></li>
+	<li><a href="#" onclick="toggleMenu('second')">Menu Four</a>
+		<ul id="second" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Five</a></li>
+</ul>
+<h2>Content Heading</h2>
+</body>
+</html>

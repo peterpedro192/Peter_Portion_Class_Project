@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toggle Menu One</title>
+<script>
+	/*
+	 * Function to turn off all element that match eleName and have class submenu
+	 */
+	// Turn off submenus
+	subMenu = null;
+	eleName = null;
+	function hideMenu(eleName,classValue){
+		// Store in array 'subMenu' all elements in page
+		subMenu = document.getElementsByTagName(eleName);
+		// Loop through each array position from 0 to length
+		for(i=0;i<subMenu.length;i++){
+			// Check each array position and see if class of 'submenu'
+			if(subMenu[i].className == classValue){
+				subMenu[i].style.display = 'none';
+			}
+		}
+	}
+	/*
+	 * Function to turn on submenu by the id selected
+	 */
+	// Declare local variables by giving empty value
+	currId = null;
+	currMenu = null;
+	oldMenu = null;
+	function toggleMenu(currId){
+		// Locate element with relevant id using DOM
+		currMenu = document.getElementById(currId);
+		// Check to see if existing menu open
+		if(oldMenu){
+			oldMenu.style.display = 'none';
+		}
+		// Change located element's style display to block
+		currMenu.style.display = 'block';
+		// Remember what menu has just been toggled on
+		oldMenu = currMenu;
+	}
+</script>
+</head>
+<!-- Load hide menu when body loaded and then show submenu first -->
+<body onload="hideMenu('ul','submenu');toggleMenu('first');">
+<h1>Toggle Menu One</h1>
+<ul>
+	<li><a href="#">Menu One</a></li>
+	<li><a href="#" onclick="toggleMenu('first')">Menu Two</a>
+		<ul id="first" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Three</a></li>
+	<li><a href="#" onclick="toggleMenu('second')">Menu Four</a>
+		<ul id="second" class="submenu">
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+	</li>
+	<li><a href="#">Menu Five</a></li>
+</ul>
+<h2>Content Heading</h2>
+</body>
+</html>
