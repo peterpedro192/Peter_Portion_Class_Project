@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Example Lightbox - Pretty Photo</title>
+<script src="../modernizr.min.js"></script>
+<!-- jQuery Library first -->
+<script src="libs/jquery/jquery-1.10.2.min.js"></script>
+<link href="css/prettyPhoto.css" rel='stylesheet' />
+<!-- jQuery plug-in helper files -->
+<script src="plugins/jquery/jquery.prettyPhoto.js"></script>
+<style>
+    .hide{
+        display: none;
+    }
+</style>
+
+
+
+
+</head>
+<body>
+<h1>Lightbox - No Margins for Error Pretty Photo</h1>
+<section class="gallery">
+    
+    <p>
+        <a href="images/flower1_lrg.jpg" rel="prettyPhoto [gallery1]" title="Tulips from Amsterdam">
+            <img src="images/flower1_sml.jpg" alt="Flower1" />
+        </a>
+    </p>
+        <p>
+            <a href="images/flower2_lrg.jpg" rel="prettyPhoto [gallery1]" title="Blue Flower in Forest">
+            <img src="images/flower2_sml.jpg" alt="Flower2" />
+        </a>
+    </p>
+    <p>
+        <a href="images/flower3_lrg.jpg" rel="prettyPhoto [gallery2]" title="Yellow Sun Flower">
+            <img src="images/flower3_sml.jpg" alt="Flower3" />
+        </a>
+    </p>
+    <p>
+        <a href="images/flower4_lrg.jpg" rel="prettyPhoto [gallery2]" title="Purple Cactus Flower">
+            <img src="images/flower4_sml.jpg" alt="Flower4" />
+        </a>
+    </p>    
+    
+    <!-- This links the anchor #message to some text, when click on this text calls the prettyPhoto function which will 
+         display the previously hidden text (from style sheet in header) in a lightbox -->
+    <section>
+        <a href="#message" rel="prettyPhoto">A message from our Sponsors!</a>
+	<div id="message" class="hide">
+		<p>This is inline content opened in prettyPhoto.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+	</div>
+    </section>
+
+   
+</section>
+
+<!-- jQuery Activation Script, the $ in front of something indicates we are using Jquery NOT Javascript --> 
+<script>
+    //short hand version is $(function() - so when document is ready perform a function
+    //similar to onload
+    $(document).ready(function(){
+        //target anchorw a that have an attribute 'rel' that contains prettyPhoto
+        $("a[rel^='prettyPhoto']").prettyPhoto({
+           theme: 'dark_rounded',
+           autoplay_slideshow: true,
+           opacity: 0.5
+        });
+
+
+    });
+
+</script>
+
+</body>
+</html>
