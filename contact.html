@@ -33,46 +33,105 @@
         <p>
             <img src="images/couple.jpg" alt="Bride and groom by beach hut" width="300" height="450" />
         </p>
-        <table summary="Contact Arrow Photography" width="100%" border="1">
-            <caption>Contact Details</caption>
-            <thead>
-            <!-- table head start -->
+        <!-- Html form start -->
+        <!-- Using 'get' method the info from form is sent in url (can be seen), with 'post' it is sent back to server
+                in the http request (unseen) - both are NOT secure. Can use hash # in action so it remains on web page when
+            you sumbit (for practice) or send to php Paul created so you can see a response when form submitted-->
+        <form action="http://www.webdesignstudents.co.uk/students/response.php" method="get" id="contactForm">
+            <fieldset>
+                <legend>Personal Information</legend>
+            <table>
+                <!--Personal Information-->
                 <tr>
-                    <th scope="col">Column 1</th>
-                    <th scope="col">Column 2</th>
-                    <th scope="col">Column 3</th>
-                    <th scope="col">Column 4</th>
+                    <td>
+                        <label for="cname">Name</label>
+                    </td>
+                    <td><!-- name was the older of identifying input name but now we use ids because we use jquery to 
+                        validate it, id must be unique but name does not have to be. The names are the value that is actually
+                        sent, the ids are used by Jquery to validate the form before it is submitted
+                            The title appears from Jquery Validation if the user doesn't put in required info-->
+                        <input type="text" name="cname" id="cname" value="" size="30" required placeholder="Please enter Name" title="Enter your name please" //>
+                    </td>
                 </tr>
-            <!-- table head end -->
-            </thead>
-            <tbody>
-            <!-- table body start -->
                 <tr>
-                    <th scope="row">Row 1</th>
-                    <td rowspan="2">Data R1 &amp; R2 C2</td>
-                    <td>Data R1 C3</td>
-                    <td>Data R1 C4</td>
+                    <td>
+                        <label for="cemail">Email</label>
+                    </td>
+                    <td>
+                        <input type="email" name="cemail" id="cemail" value="" size="30" required placeholder="Please enter Email" />
+                    </td>
                 </tr>
-
                 <tr>
-                    <th scope="row">Row 2</th>
-                    <!-- Removed as spanned rows -->
-                    <td>Data R2 C3</td>
-                    <td>Data R2 C4</td>
+                    <td>
+                        <label for="clocation">Location</label>
+                    </td>
+                    <td>
+                        <select name="clocation" id="clocation">
+                            <option value="" selected>Please Select</option>
+                            <option value="Brighton">Brighton</option>
+                            <option value="Hove">Hove</option>
+                            <option value="London">London</option>
+                        </select>
+                    </td>
                 </tr>
-            <!-- table body end -->
-            </tbody>
-            <tfoot>
-            <!-- table foot start -->
                 <tr>
-                    <th scope="row">Row 3</th>
-                    <td>Data R3 C2</td>
-                    <td colspan="2">Data R3 C3 &amp; C4</td>
-                    <!-- Removed as spanned columns -->
+                    <td>
+                        <label>Gender:</label>
+                    </td>
+                    <td>
+                        <label>Male<input type="radio" name="cgender" id="cgenderm" value="Male" checked /></label>
+                        <label>Female<input type="radio" name="cgender" id="cgenderf" value="Male" /></label>
+                    </td>
                 </tr>
-            <!-- table foot end -->
-            </tfoot>
-        </table> 
+            </table>
+            </fieldset>
+                
+            <fieldset>
+                <legend>Enquiry</legend>
+                <table>
+                    <!--Gerneral Information-->
+                <tr>
+                    <td>
+                        <label>Preferred Contact Method:</label> 
+                    </td>
+                    <td>
+                        <label>Email<input type="checkbox" name="emailpref" id="prefe" value="Yes" checked/></label>
+                        <label>Telephone<input type="checkbox" name="phonepref" id="preft" value="Yes" /></label>
+                        <label>SMS/Mobile<input type="checkbox" name="mobilepref" id="prefm" value="Yes" /></label>         
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="comment">Comment</label>
+                    </td>
+                    <td>
+                        <textarea name="comment" id="comment" cols="24" rows="8" required placeholder="Please enter Comments"></textarea>
+                    </td>
+                </tr>
+                <!--this creates an ordered list that houses the error messages generated from jquery if the required 
+                    info is not provided -->
+                <tr>
+                    <td colspan="2">
+                        <div class="errors">
+                            <ol></ol>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input type="submit" name="submit" value="Send Form" />
+                    </td>
+                </tr>
+                
+                </table>
+            </fieldset>
+            
+        </form>
+        
+        <!-- Html form end -->
         
         <p>
             <a href="http://goo.gl/maps/2a4j0">
@@ -98,5 +157,44 @@
     </div>
     <!-- Footer ends -->
 </div>   
+           <!-- jQuery Library first -->
+        <script src="libs/jquery/jquery-1.10.2.min.js"></script>
+        <!-- jQuery plug-in helper files -->
+        <!-- This validation will work across all browsers, regardless of whether the browser understands Html5 or not -->
+        <script src="plugins/jquery/jquery.validate.min.js"></script>
+        <!-- jQuery Activation Script, the $ in front of something indicates we are using Jquery NOT Javascript -->
+        <script>
+            //General onload instruction for Jquery
+            $(document).ready(function(){
+                 $('#contactForm').validate({
+                     rules:{
+                         cname: "required",
+                         
+                        
+                      
+                            cemail:{
+                             required: "#prefe:checked",
+                             email: "#prefe:checked"
+                             },
+                 
+                      
+                
+                     clocation: "required",
+                     comment: "required",
+                     },
+                     
+                     messages:{
+                         cname:"I said, name please!",
+                         cemail:{
+                             required:"You must provide Email!",
+                             email:"No, one that actually works"
+                         }
+                     },
+                     errorContainer: ('#contactForm div.errors'),
+                     errorLabelContainer: ('ol'),
+                     wrapper: ('li')
+                 });   
+            })
+        </script>
 </body>
 </html>
