@@ -6,7 +6,7 @@
 <script>
 	/*
 	 * Function to turn off all element that match eleName and have class submenu
-	 */
+	 
 	// Turn off submenus
 	subMenu = null;
 	eleName = null;
@@ -21,9 +21,9 @@
 			}
 		}
 	}
-	/*
+	
 	 * Function to turn on submenu by the id selected
-	 */
+	 
 	// Declare local variables by giving empty value
 	currId = null;
 	currMenu = null;
@@ -40,6 +40,38 @@
 		// Remember what menu has just been toggled on
 		oldMenu = currMenu;
 	}
+        */
+       
+       /* Using Javascript produced by Coffescript compiler */
+
+            var hideMenu, oldMenu, toggleMenu;
+
+        hideMenu = function(elementname, classname) {
+          var allElements, currentElement, _i, _len, _results;
+          allElements = document.getElementsByTagName(elementname);
+          _results = [];
+          for (_i = 0, _len = allElements.length; _i < _len; _i++) {
+            currentElement = allElements[_i];
+            if (currentElement.className === classname) {
+              _results.push(currentElement.style.display = 'none');
+            } else {
+              _results.push(void 0);
+            }
+          }
+          return _results;
+        };
+
+        oldMenu = null;
+
+        toggleMenu = function(currId) {
+          var currMenu;
+          currMenu = document.getElementById(currId);
+          if (oldMenu) {
+            oldMenu.style.display = 'none';
+          }
+          currMenu.style.display = 'block';
+          oldMenu = currMenu;
+        };
 </script>
 </head>
 <!-- Load hide menu when body loaded and then show submenu first -->
