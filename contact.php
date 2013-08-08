@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta charset="UTF-8" />
+<?php include('includes/head.inc');?>
   <title>Contact Arrow Photography with comments or enquires</title>
     <!--Styles go here, Links then embedded -->
   <link rel="stylesheet" href="css/mycore.css"/>
@@ -18,12 +15,8 @@
     <!-- Header starts -->
     <div>
         <h1>Arrow Photography</h1>
-        <ul class="newnav">    
-            <li><a href="index.html">Home</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <?php include('includes/nav.inc');?>
+    
     </div>
     <!-- Header ends -->
     
@@ -33,11 +26,107 @@
         <p>
             <img src="images/couple.jpg" alt="Bride and groom by beach hut" width="300" height="450" />
         </p>
+        
+        
+        
+        
+        
+
+                <!--Mail Script-->
+        <?php
+            if(isset($_POST['submit'])){
+
+                ini_set('SMTP', 'mail.british-study.com');
+
+                $name= $_POST['cname'];
+                $email= $_POST['cemail'];
+                $location= $_POST['clocation'];
+                $gender= $_POST['cgender'];
+                $emailpref= $_POST['emailpref'];
+                $telpref= $_POST['phonepref'];
+                $mobpref= $_POST['mobilepref'];
+                $comment= $_POST['comment']; 
+
+
+                $to= "peterpedro192@gmail.com";
+                $subject= "Web Site Contact form submission from Work Flow Exercise";
+
+                $headers= "MIME-Version: 1.0 \r\n";
+                $headers.= "Content-type: text/html; charset=utf-8 \r\n";
+                $headers.= "From:".$email."\r\n";
+                
+                
+                 
+
+                            
+                      
+
+                $message= '
+
+                <!DOCTYPE html>
+                <html>
+                    <head>
+                        <title>Wedding Photography Exercise Comment</title>
+                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                        <style>
+                            body{
+                                width: 500px;
+                                margin: 0 auto;
+                                background: #EEEEFF;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Workflow Exercise</h1>
+                        <p>
+                            <img src="http://www.hovecollege.co.uk/images/header.gif" alt="Hove College Logo" />
+                        </p>
+                        <p>
+                            Thank you. we have received your comment and will contact you shortly. Please feel free to 
+                            <a href="http://localhost/Work_Flow_Exercise/">visit our web site</a>
+                            and enjoy our current features free of charge.
+                        </p>
+                        <p>
+                            Thank you again we value your opinion.
+                        </p>
+                        <p>
+                            The Marketing Team
+                        </p>
+                        
+                        <h2>'.$name.' who is '.$gender.' and lives in '.$location.' has contacted you via your web site and they have commented</h2><h3>'.$comment.'</h3>
+                        <p> '.$name.' prefers to be contacted by </p>
+                            
+                    </body>
+                </html>
+
+                ';
+
+                if(mail($to,$subject,$message,$headers)){
+                    echo '<h3>Thank you for your comment.</h3>';
+                }else {
+                    echo ',<h3>Sorry, please try again later.</h3>';
+                }
+            }
+
+        ?>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <!-- Html form start -->
         <!-- Using 'get' method the info from form is sent in url (can be seen), with 'post' it is sent back to server
                 in the http request (unseen) - both are NOT secure. Can use hash # in action so it remains on web page when
-            you sumbit (for practice) or send to php Paul created so you can see a response when form submitted-->
-        <form action="http://www.webdesignstudents.co.uk/students/response.php" method="get" id="contactForm">
+            you sumbit (for practice) or send to php Paul created so you can see a response when form submitted
+           <form action="http://www.webdesignstudents.co.uk/students/response.php" method="get" id="contactForm"> - this sends it
+            to the server Paul set up which gives a response using the info we provided int the form
+        -->
+        <form action="contact.php" method="post" id="contactForm">
             <fieldset>
                 <legend>Personal Information</legend>
             <table>
@@ -143,19 +232,7 @@
     </div>
     <!-- Content ends -->
     
-    <!-- Footer starts -->
-    <div id="footer">
-        <p>
-          &copy;1995 &mdash; 2013 Arrow Photography. All rights reserved. 
-          <abbr title="Public Liability Company">P.L.C.</abbr>
-        </p>
-        <address>
-            Hove College,<br />
-            48 Cromwell Road<br />
-            Brighton &amp; Hove
-        </address>
-    </div>
-    <!-- Footer ends -->
+     <?php include('includes/foot.inc');?>
 </div>   
            <!-- jQuery Library first -->
         <script src="libs/jquery/jquery-1.10.2.min.js"></script>

@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta charset="UTF-8" />
+<?php include('includes/head.inc');?>
   <title>Arrow Photography frequently asked questions</title>
     <!--Styles go here, Links then embedded -->
   <link rel="stylesheet" href="css/mycore.css"/>
@@ -18,12 +15,7 @@
     <!-- Header starts -->
     <div>
         <h1>Arrow Photography</h1>
-        <ul class="newnav">    
-            <li><a href="index.html">Home</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <?php include('includes/nav.inc');?>
     </div>
     <!-- Header ends -->
     
@@ -37,19 +29,8 @@
     </div>
     <!-- Content ends -->
     
-    <!-- Footer starts -->
-    <div id="footer">
-        <p>
-          &copy;1995 &mdash; 2013 Arrow Photography. All rights reserved. 
-          <abbr title="Public Liability Company">P.L.C.</abbr>
-        </p>
-        <address>
-            Hove College,<br />
-            48 Cromwell Road<br />
-            Brighton &amp; Hove
-        </address>
-    </div>
-    <!-- Footer ends -->
-</div>    
+    <?php include('includes/foot.inc');?> 
+    
+</div>     
 </body>
 </html>
